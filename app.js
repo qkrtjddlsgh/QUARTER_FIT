@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var reg_record = require('./routes/register_record/reg_record');
 var list_record = require('./routes/search_record/list_record_by_type');
+var delete_record = require('./routes/register_record/delete_record');
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/reg_record', reg_record);
 app.use('/list_record', list_record);
+app.use('/delete_record', delete_record);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
