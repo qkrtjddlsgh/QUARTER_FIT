@@ -7,8 +7,21 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var reg_record = require('./routes/register_record/reg_record');
 
 var app = express();
+
+// mongodb connection
+var mongoose = require('mongoose');
+
+var db = mongoose.connection;
+db.on('error', console.error);
+db.once('open', function(){
+    // CONNECTED TO MONGODB SERVER
+    console.log("Connected to mongod server");
+});
+
+mongoose.connect('mongodb://localhost/quarter_db');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/reg_record', reg_record);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
