@@ -20,10 +20,20 @@ router.post('/', function(req, res){
                 var res_data = new Object();
                 res_data.code = "9999";
 
-                var add_data = new Object();
-                add_data.result = doc;
+                var add_data = new Array();
 
-                res_data.response = add_data;
+                for(var i=0; i<doc.length; i++){
+                    var temp = new Object();
+                    temp.name = doc[i].name;
+                    temp.gender = doc[i].gender;
+                    temp.typestring = doc[i].time_min + ":" + doc[i].time_sec;
+
+                    add_data.push(temp);
+                }
+
+                for(var j=0; j<doc.length; j++){
+                    res_data.response = add_data;
+                }
 
                 res.send(res_data);
                 res.end();
@@ -39,10 +49,20 @@ router.post('/', function(req, res){
                 var res_data = new Object();
                 res_data.code = "9999";
 
-                var add_data = new Object();
-                add_data.result = doc;
+                var add_data = new Array();
 
-                res_data.response = add_data;
+                for(var i=0; i<doc.length; i++){
+                    var temp = new Object();
+                    temp.name = doc[i].name;
+                    temp.gender = doc[i].gender;
+                    temp.typestring = doc[i].round_round + "R" + doc[i].round_remainder;
+
+                    add_data.push(temp);
+                }
+
+                for(var j=0; j<doc.length; j++){
+                    res_data.response = add_data;
+                }
 
                 res.send(res_data);
                 res.end();
@@ -58,10 +78,20 @@ router.post('/', function(req, res){
                 var res_data = new Object();
                 res_data.code = "9999";
 
-                var add_data = new Object();
-                add_data.result = doc;
+                var add_data = new Array();
 
-                res_data.response = add_data;
+                for(var i=0; i<doc.length; i++){
+                    var temp = new Object();
+                    temp.name = doc[i].name;
+                    temp.gender = doc[i].gender;
+                    temp.typestring = doc[i].point_point + "P";
+
+                    add_data.push(temp);
+                }
+
+                for(var j=0; j<doc.length; j++){
+                    res_data.response = add_data;
+                }
 
                 res.send(res_data);
                 res.end();
@@ -71,4 +101,4 @@ router.post('/', function(req, res){
 
 });
 
-module.exports = router
+module.exports = router;
