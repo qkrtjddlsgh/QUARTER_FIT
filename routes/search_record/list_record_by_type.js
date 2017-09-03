@@ -11,7 +11,7 @@ router.post('/', function(req, res){
     var region = recv_data.region;
     var scale = recv_data.scale;
 
-    if(type == T){
+    if(type == "T"){
         record.find({date: date, region: region, type: type, scale: scale}).sort({time_min: 1, time_sec: 1}).exec(function(err, doc){
             if(err){
                 console.error(err.message);
@@ -30,7 +30,7 @@ router.post('/', function(req, res){
             }
         });
     }
-    else if(type == R){
+    else if(type == "R"){
         record.find({date: date, region: region, type: type, scale: scale}).sort({round_round: -1, round_remainder: -1}).exec(function(err, doc){
             if(err){
                 console.error(err.message);
@@ -49,7 +49,7 @@ router.post('/', function(req, res){
             }
         });
     }
-    else if(type == P){
+    else if(type == "P"){
         record.find({date: date, region: region, type: type, scale: scale}).sort({point_point: -1}).exec(function(err, doc){
             if(err){
                 console.error(err.message);
