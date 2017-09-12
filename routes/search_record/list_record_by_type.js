@@ -26,7 +26,13 @@ router.post('/', function(req, res){
                     var temp = new Object();
                     temp.name = doc[i].name;
                     temp.gender = doc[i].gender;
-                    temp.typestring = doc[i].time_min + ":" + doc[i].time_sec;
+
+                    if(doc[i].time_sec < 10){
+                        temp.typestring = doc[i].time_min + ":0" + doc[i].time_sec;
+                    }
+                    else{
+                        temp.typestring = doc[i].time_min + ":" + doc[i].time_sec;
+                    }
 
                     add_data.push(temp);
                 }
