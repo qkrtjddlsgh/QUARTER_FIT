@@ -64,7 +64,7 @@ router.post('/', function(req, res){
                     var temp = new Object();
                     temp.name = doc[i].name;
                     temp.gender = doc[i].gender;
-                    temp.typestring = doc[i].round_round + "R" + doc[i].round_remainder;
+                    temp.typestring = doc[i].round_round + "R " + doc[i].round_remainder;
 
                     add_data.push(temp);
                 }
