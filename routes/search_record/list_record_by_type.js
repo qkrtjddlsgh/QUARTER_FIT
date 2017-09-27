@@ -27,11 +27,14 @@ router.post('/', function(req, res){
                     temp.name = doc[i].name;
                     temp.gender = doc[i].gender;
 
-                    if(doc[i].time_sec < 10){
-                        temp.typestring = doc[i].time_min + ":0" + doc[i].time_sec;
+                    if(doc[i].time_sec < 10 && doc[i].time_min < 10){
+                        temp.typestring = "0" + doc[i].time_min + ":0" + doc[i].time_sec;
                     }
-                    else{
-                        temp.typestring = doc[i].time_min + ":" + doc[i].time_sec;
+                    else if(doc[i].time_min < 10){
+                        temp.typestring = "0" + doc[i].time_min + ":" + doc[i].time_sec;
+                    }
+                    else if(doc[i].time_sec < 10){
+                        temp.typestring = doc[i].time_min + ":0" + doc[i].time_sec;
                     }
 
                     add_data.push(temp);
