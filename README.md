@@ -1,5 +1,4 @@
 # QUARTER_FIT
-QUARTER_FIT RANKING SYSTEM
 
 쿼터핏 회원들을 위한 랭킹 시스템
 
